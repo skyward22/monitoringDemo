@@ -10,6 +10,7 @@ let rollbar = new Rollbar({
 
 const app = express()
 
+// delete json and will have error
 app.use(express.json())
 app.use('/style', express.static('../styles.css'))
 
@@ -33,7 +34,7 @@ app.post('/api/student', (req, res)=>{
 
     if(index === -1 && name !== ''){
         students.push(name)
-        rollbar.log('Student added successfully', {author: 'Scott', type: 'manual entry'})
+        rollbar.log('Student added successfully', {author: 'Trent', type: 'manual entry'})
         res.status(200).send(students)
     } else if (name === ''){
         rollbar.error('No name given')
@@ -47,7 +48,6 @@ app.post('/api/student', (req, res)=>{
 
 const port = process.env.PORT || 4545
 
-// rolly
 app.use(rollbar.errorHandler())
 
 app.listen(port, () => console.log(`Take us to warp ${port}!`))
