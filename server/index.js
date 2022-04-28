@@ -11,7 +11,7 @@ let rollbar = new Rollbar({
 const app = express()
 
 app.use(express.json())
-app.use('/style', express.static('./styles.css'))
+app.use('/style', express.static('../styles.css'))
 
 let students = []
 
