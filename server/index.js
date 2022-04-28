@@ -11,12 +11,12 @@ let rollbar = new Rollbar({
 const app = express()
 
 app.use(express.json())
-app.use('/style', express.static('./public/styles.css'))
+app.use('/style', express.static('./styles.css'))
 
 let students = []
 
 app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.sendFile(path.join(__dirname, '/index.html'))
     rollbar.info('html file served successfully.')
 })
 
